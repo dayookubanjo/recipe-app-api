@@ -1,0 +1,15 @@
+version: "3.9" #Version of docker-compose syntax we are using
+
+services:
+  app:
+    build:
+      context: . #Build dockerfile in the current directory where we are running the docker compose from (root)
+      args:
+        - DEV=true
+    ports:
+      - "8000:8000" #map port 8000 in our local machine to port 8000 in our docker container
+    volumes:
+      - ./app:/app #map project directory ./app to /app in the docker container
+    command: > #command used to run the service 
+      sh -c "python manage.py runserver 0.0.0.0:8000" 
+      
