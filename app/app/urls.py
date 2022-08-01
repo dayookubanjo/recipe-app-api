@@ -21,6 +21,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from core import views
 # from django.urls import re_path
 # from rest_framework import permissions
 # from drf_yasg.views import get_schema_view
@@ -43,6 +44,7 @@ from django.conf import settings
 ...
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/health-check/', views.health_check, name="health-check"),
     path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='api-schema'),
          name='api-docs'),
