@@ -34,7 +34,7 @@ services:
     depends_on:
       - app
     ports:
-      - 8000:8000 # Port 80 on local machine mapped to port 8000 on server
+      - 80:8000 # Port 80 on local machine mapped to port 8000 on server
     volumes:
       - static-data:/vol/static
 
